@@ -1,3 +1,10 @@
+def welcome_speech(line):
+    print(f"""Добро пожаловать в игру Hangman
+    Ваша задача угадать загаданное слово за несколько попыток,
+    иначе вас ждет расплата!
+    Загаданное слово состоит из {len(line)} букв {line}
+    """)
+
 def get_word(words):
     return words[0]
 
@@ -18,7 +25,8 @@ def game():
     word_in_play = get_word(word)
     template =start_template(word_in_play)
     a = list_to_string_convert(template)
+    welcome_speech(list_to_string_convert(template))
     print(a)
 
 game()
-print("Добро пожаловать в игру Hangman")
+
