@@ -29,6 +29,12 @@ def check_win(guessed):
             return False
     return True
 
+def check_mistake(word, letter):
+    for i in word:
+        if letter == i:
+            return True
+    return False
+
 def game():
     progress = True
     word = ["orange"]
@@ -43,18 +49,18 @@ def game():
         template = build_template(template, word_in_play, user_guess)
         guessed = list_to_string_convert(template)
         print(f"Результат: {guessed}")
-        progress = check_win(guessed)
-        #
-        # if not check_mistake(word_in_play, user_guess):
-        #     print(f"Осталось {lifes} попытки")
-        #     lifes = check_attempt(lifes)
-        #
-        # if lifes == 0:
-        #     lose_speech()
-        #     break
-        #
-        # if not progress:
-        #     win_speach()
+        progress = not check_win(guessed)
+
+        if not check_mistake(word_in_play, user_guess):
+            lifes -= 1
+            print(f"Осталось {lifes} попытки")
+
+        if lifes == 0:
+            print("Вы проиграли")
+            break
+
+        if not progress:
+            print("Вы выйграли")
 
 game()
 
