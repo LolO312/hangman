@@ -23,6 +23,12 @@ def build_template(symbols, word, letter):
             symbols[i] = letter
     return symbols
 
+def check_win(guessed):
+    for symbol in guessed:
+        if symbol == "_":
+            return False
+    return True
+
 def game():
     progress = True
     word = ["orange"]
@@ -37,7 +43,7 @@ def game():
         template = build_template(template, word_in_play, user_guess)
         guessed = list_to_string_convert(template)
         print(f"Результат: {guessed}")
-        # progress = check_win(guessed)
+        progress = check_win(guessed)
         #
         # if not check_mistake(word_in_play, user_guess):
         #     print(f"Осталось {lifes} попытки")
