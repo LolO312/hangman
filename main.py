@@ -1,3 +1,5 @@
+from random import randint
+
 def welcome_speech(line):
     print(f"""Добро пожаловать в игру Hangman
     Ваша задача угадать загаданное слово за несколько попыток,
@@ -5,7 +7,7 @@ def welcome_speech(line):
     Загаданное слово состоит из {len(line)} букв {line} """)
 
 def get_word(words):
-    return words[0]
+    return words[randint(0, 5)]
 
 def list_to_string_convert(strings):
     # string = ""
@@ -37,7 +39,7 @@ def check_mistake(word, letter):
 
 def game():
     progress = True
-    word = ["orange"]
+    word = ["orange", "blue", "apple", "banana", "helicopter", "plane"]
     lifes = 3
     word_in_play = get_word(word)
     template = start_template(word_in_play)
