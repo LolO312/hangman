@@ -7,7 +7,7 @@ def welcome_speech(line):
     Загаданное слово состоит из {len(line)} букв {line} """)
 
 def get_word(words):
-    return words[randint(0, 5)]
+    return words[randint(0, len(words) - 1)]
 
 def list_to_string_convert(strings):
     # string = ""
